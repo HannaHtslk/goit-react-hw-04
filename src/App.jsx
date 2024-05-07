@@ -11,30 +11,22 @@ import fetchPhotosByQuery from './photos-api.js';
 
 const App = () => {
   const [photos, setPhotos] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
 
   const handleSearch = async query => {
     try {
-      setPhotos([]);
-      setError(false);
-      setLoading(true);
-
       const data = await fetchPhotosByQuery(query);
 
-      setPhotos(data);
+      setPhotos(prev => [...prev, ...data]);
     } catch (error) {
-      setError(true);
-    } finally {
-      setLoading(false);
+      console.log(error);
     }
   };
 
   return (
     <>
       <SearchBar onSearch={handleSearch} />
-      {loading && <Loader />}
-      {error && <ErrorMessage />}
+      {/* {loading && <Loader />}
+      {error && <ErrorMessage />} */}
       {photos.length > 0 && <ImageGallery items={photos} />}
     </>
   );

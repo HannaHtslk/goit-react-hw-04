@@ -1,0 +1,23 @@
+/* Styles for the ImageGallery component */
+.list {
+  display: grid; /* Using CSS Grid */
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  grid-gap: 16px; /* Spacing between cards */
+  padding: 16px; /* Padding around the entire list */
+  list-style: none; /* Remove default list styles */
+  margin: 0; /* Reset margin */
+}
+
+.item {
+  width: 100%; /* Full width to align with grid */
+  height: 300px; /* Consistent height for all cards */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1); /* Card-like shadow */
+  border-radius: 8px; /* Rounded corners */
+  transition: transform 0.3s; /* Smooth hover transition */
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.item:hover {
+  transform: scale(1.05); /* Scale up slightly on hover */
+}

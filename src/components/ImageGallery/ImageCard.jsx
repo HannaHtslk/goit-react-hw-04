@@ -1,5 +1,36 @@
-const ImageCard = () => {
-  return <div>ImageCard</div>;
+import s from './ImageCard.module.css';
+import { FcLike } from 'react-icons/fc';
+import { AiFillInstagram } from 'react-icons/ai';
+
+const ImageCard = ({ item }) => {
+  const {
+    likes,
+    description,
+    user: { instagram_username },
+    urls: { small, regular },
+  } = item;
+
+  return (
+    <div className={s.card}>
+      <div className={s.imgWrapper}>
+        <img className={s.img} src={small} alt={description} />
+      </div>
+      <div className={s.contentWrapper}>
+        <p className={s.likes}>
+          <FcLike className={s.likeIcon} size="20" />
+          {likes}
+        </p>
+        <p className={s.text}>
+          {instagram_username && (
+            <>
+              <AiFillInstagram className={s.instIcon} size="23" />
+              {instagram_username}
+            </>
+          )}
+        </p>
+      </div>
+    </div>
+  );
 };
 
 export default ImageCard;
