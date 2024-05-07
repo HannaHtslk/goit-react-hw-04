@@ -1,6 +1,6 @@
 import s from './ImageCard.module.css';
 import { FcLike } from 'react-icons/fc';
-import { AiFillInstagram } from 'react-icons/ai';
+import { SlSocialInstagram } from 'react-icons/sl';
 
 const ImageCard = ({ item }) => {
   const {
@@ -23,7 +23,7 @@ const ImageCard = ({ item }) => {
         <p className={s.text}>
           {instagram_username && (
             <>
-              <AiFillInstagram className={s.instIcon} size="23" />
+              <SlSocialInstagram className={s.instIcon} size="23" />
               {instagram_username}
             </>
           )}
