@@ -1,5 +1,6 @@
 import { IoIosSearch } from 'react-icons/io';
 import s from './SearchBar.module.css';
+import toast, { Toaster } from 'react-hot-toast';
 
 const SearchBar = ({ onSearch }) => {
   const handleSubmit = e => {
@@ -9,7 +10,7 @@ const SearchBar = ({ onSearch }) => {
     const queryWord = form.elements.query.value;
 
     if (queryWord.trim() === '') {
-      alert('Enter something');
+      toast.error('This field can not be empty!');
       return;
     }
 
@@ -35,6 +36,7 @@ const SearchBar = ({ onSearch }) => {
           />
         </div>
       </form>
+      <Toaster />
     </header>
   );
 };
