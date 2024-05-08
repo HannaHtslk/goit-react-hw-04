@@ -47,7 +47,7 @@ const App = () => {
   const handleSearch = search => {
     setQuery(search);
     setPhotos([]);
-    setPage(0);
+    setPage(1);
   };
 
   const onLoad = () => {
